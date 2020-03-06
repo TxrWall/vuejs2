@@ -1,0 +1,9 @@
+Anotações da aula
+
+$event = palavra reservada do vue para quando for necessário passar o evento para função que está sendo chamada ao disparar o evento (click, mouseover, mouseout)
+
+v-on:click.enter.alt = Modificadores de eventos. Eles podem ser encadeados e só dispararam quando pressionadas as teclas juntas.
+
+v-model = two-way data binding
+
+:key="attribute" = faz com que o vue não reutilize o código, faz com que o elemento seja renderizado do zero toda vez que for necessário.
