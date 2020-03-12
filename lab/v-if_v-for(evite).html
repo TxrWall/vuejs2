@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo v-if/v-for</title>
+    <script src="http://www.unpkg.com/vue"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <ul>
+            <li v-for="user in users" v-if='user.isActive' :key='user.id'>
+                {{ user.name }}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+
+        const App = new Vue({
+            el: '#app',
+            data: {
+                nome: 'Maria',
+                logado: false,
+                users: [
+                    { id:0, name: 'Pedro 1', isActive: true },
+                    { id:1, name: 'Pedro 2', isActive: false },
+                    { id:2, name: 'Pedro 3', isActive: true },
+                    { id:3, name: 'Pedro 4', isActive: false },
+                    { id:4, name: 'Pedro 5', isActive: true }
+                ]
+            },
+            /*computed: {
+                activeUsers: function () {
+                    return this.users.filter(function (user) {
+                        return user.isActive
+                    })
+                }
+            }*/
+        });
+
+    </script>
+
+</body>
+
+</html>
