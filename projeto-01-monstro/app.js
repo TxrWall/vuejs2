@@ -1,5 +1,5 @@
 new Vue({
-	el: '#desafio',
+	el: '#projeto',
 	data: {
 		estado: true,
 		mineiros: ['Ferro', 'Cobre', 'Ouro', 'Carvão'],
