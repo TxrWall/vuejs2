@@ -1,0 +1,104 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div id="projeto">
+  <div class="container mt-3">
+
+    <!-- hp -->
+    <div class="row">
+      <div class="col">
+
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Herói</h5>
+
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" :style="{width: hp_heroi + '%' }" :aria-valuenow="hp_heroi"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+            <p class="card-text">{{hp_heroi}}%</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col">
+
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">Monstro</h5>
+
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" :style="{width: hp_monstro + '%' }"
+                :aria-valuenow="hp_monstro" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+            <p class="card-text">{{hp_monstro}}%</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- botoes -->
+    <div class="row mt-3">
+      <div class="col" v-if="hp_heroi > 0 && hp_monstro > 0">
+
+        <div class="card text-center" v-if="gameStarted">
+          <div class="card-body">
+            <button type="button" class="btn btn-danger text-uppercase" @click="attack()">Ataque</button>
+            <button type="button" class="btn btn-warning text-uppercase" @click="especialAttack()">Ataque especial</button>
+            <button type="button" class="btn btn-success text-uppercase" @click="heal()">Curar</button>
+            <button type="button" class="btn btn-secondary text-uppercase" @click="gameState()">Desistir</button>
+          </div>
+        </div>
+
+        <div class="card text-center" v-else>
+          <div class="card-body">
+            <button type="button" class="btn btn-info text-uppercase" @click="gameState()">Iniciar novo
+              jogo</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col" v-else-if="hp_heroi <= 0">
+        <div class="card text-center">
+          <div class="card-body">
+            <h2 class="text-default">Você perdeu! :(</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="col" v-else>
+        <div class="card text-center">
+          <div class="card-body">
+            <h2 class="text-success">Você venceu! :D</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- log -->
+    <div class="row mt-3" v-if="logs.length > 0">
+      <div class="col">
+        <div class="card text-center">
+          <div class="card-body">
+
+            <div v-for="log in logs" class="alert" :class="log.cls" role="alert">
+              {{ log.msg }}
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="app.js"></script>
